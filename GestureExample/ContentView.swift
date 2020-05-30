@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+   @State private var showModel = false
     var body: some View {
-        Text("Hello, World!")
+        Button(action: {
+            self.showModel.toggle()
+        }) {
+            Text("Show model")
+        }.sheet(isPresented: $showModel) {
+            Animation()
+           // SettingsView(showModel: self.$showModel)
+        }
     }
 }
 
